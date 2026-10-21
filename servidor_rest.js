@@ -1,12 +1,18 @@
 var express = require("express");
 var app = express();
-var conexion = require("./conexion_mysql.js");
+
+var { createClient } = require("@supabase/supabase-js");
+
+var supabaseUrl = "https://oiahxmovltfkqonigyru.supabase.co";
+var supabaseKey = "sb_publishable_P5Mc_045UU-GUFB_FbyayA__CZjDVLJ";
+
+var supabase = createClient(supabaseUrl, supabaseKey);
+
 var jwt = require("jwt-simple");
 var clave = "MICLAVEDETELEMED26-27";
 
 
 app.use("/appCliente", express.static("cliente_rest"));
-app.use("/appClienteRPC", express.static("cliente_rpc"));
 app.use(express.json());
 
 app.use("/api", function(req, res, next) {
