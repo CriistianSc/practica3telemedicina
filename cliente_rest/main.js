@@ -151,7 +151,7 @@ function modificarUsuario() {
         contraseña: document.getElementById("mod_contraseña").value
     }
     rest.put("/api/gestores/" + idGestorActual + "?token=" + tokenGestor, gestor, function(estado, respuesta) {
-        if (estado == 201) {
+        if (estado == 200) {
             alert("Se han actualizado correctamente los datos.");
             idGestorActual = respuesta.id;
             cambiarSeccion('home');
